@@ -1,3 +1,4 @@
+<?php include('../DBClient.php') ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,7 +42,7 @@
                 <div class="error"></div>
             </div> 
            
-            <button type="submit" id="registerbutton">Sign Up</button>
+            <button type="submit" id="registerbutton"name="register">Sign Up</button>
        
         </form>
     </div>
