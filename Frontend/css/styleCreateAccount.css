@@ -42,7 +42,7 @@ body {
 	width: 100%;
 }
 
-.input-control input:cfocus {
+.input-control input:focus {
     outline: 0;
 }
 
