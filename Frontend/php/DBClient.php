@@ -23,7 +23,11 @@ if (isset($_POST['register'])) {
 	$request['password'] = $_POST["password"];
 	$response = $client->send_request($request);
 
-	echo($response);
+	echo "client received response: ".PHP_EOL;
+	print_r($response);
+	echo "\n\n";
+
+	echo $argv[0]." END".PHP_EOL;
 }
 
 
