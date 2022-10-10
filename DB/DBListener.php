@@ -4,9 +4,27 @@ require_once('../rabbitmqphp_example/path.inc');
 require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 
-function doRegister($username
+require_once('DBConnection.php');
 
 
+function doRegister($username, $email, $password) {
+	$DBConnection = DBConnection();
+	$sql = "select * from `users` where username='$username'";
+	$result = $DBConnection->query($sql);
+	if($result->num_rows == 1) {
+		echo "Username is taken!";
+		return false;
+	}
+	$i = "insert into `users`(username, email, password) values ('$username', '$email','$password')";
+	if($DBConnection->query($i) == TRUE) {
+		echo "User created!";
+	}
+	else {
+		echo "Failed to create account.";
+	}
+	return true;
+	
+}
 
 
 function doLogin($username,$password)
