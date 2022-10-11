@@ -1,4 +1,4 @@
-<?php include('../DBClient.php') ?>
+<?php include('DBClient.php') ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
