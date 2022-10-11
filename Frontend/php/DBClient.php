@@ -30,4 +30,20 @@ if (isset($_POST['register'])) {
 	echo $argv[0]." END".PHP_EOL;
 }
 
+//USER LOGIN
+
+if (isset($_POST['login'])) {
+	$request = array();
+	$request['type'] = "Login";
+	$request['username'] = $_POST["username"];
+	$request['password'] = $_POST["password"];
+	$response = $client->sent_request($request);
+
+	echo "client received response: ".PHP_EOL;
+	print_r($response);
+	echo "\n\n";
+
+	echo $argv[0]." END".PHP_EOL;
+}
+
 
