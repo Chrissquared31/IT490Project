@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <form id="form" >
+        <form action="createAcc.php" method="post" id="form" >
             <h1>Create Account</h1>
             <div class="input-control">
                 <label for="firstname">First Name</label>
