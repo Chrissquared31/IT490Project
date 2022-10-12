@@ -44,9 +44,9 @@ function requestProcessor($request)
     return "ERROR: unsupported message type";
   }
   switch ($request['type']) {
- 	 case "register":
+ 	 case "registerUser":
 		 return doRegister($request['username'], $request['email'], $request['password']);
-	 case "login":
+	 case "Login":
 		 return doLogin($request['username'],$request['password']);
 	 case "validate_session":
 		 return doValidate($request['sessionId']);
