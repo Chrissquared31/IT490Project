@@ -47,4 +47,3 @@ if (isset($_POST['login'])) {
 	echo $argv[0]." END".PHP_EOL;
 }
 
-

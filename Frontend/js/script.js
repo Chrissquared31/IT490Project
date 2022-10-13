@@ -127,7 +127,7 @@ cForm.addEventListener('submit', e => {
     if(isFormValidC()==true){
         cForm.submit();
         alert("Account Created Successfully")
-        window.location.href="../php/Login.html";
+        window.location.href="../php/Login.php";
      }else {
          e.preventDefault();
      }

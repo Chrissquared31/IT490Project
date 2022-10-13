@@ -9,27 +9,30 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/Loginstyle.css">
-    <script defer src="../js/Loginscript.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/script.js"></script>
 </head>
 <body>
     
     <div class="container">
-        <form id="form">
+        <form id="login-form">
             <h1>Login</h1>
             <div class="input-control">
                 <label for="username" >Username</label>
-                <input id="username" name="username" type="text">
+                <input id="login-username" name="username" type="text">
                 <div class="error"></div>
             </div>
             <div class="input-control">
                 <label for="password">Password</label>
-                <input id="password" name="password" type="password">
+                <input id="login-password" name="password" type="password">
                 <div class="error"></div>
             </div>
             <button type="submit">Login</button>
             <div id="create-account-wrap">
-                <p>Dont have an account? <div></div><a href="createAcc.php">Create Account</a><p>
+                <p>Dont have an account? 
+                    <div></div>
+                    <a id= "create-account-tag" href="createAcc.php">Create Account</a>
+                <p>
             </div>
         </form>
     </div>
