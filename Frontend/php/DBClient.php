@@ -16,6 +16,7 @@ else {
 // REGISTRATION 
 
 if (isset($_POST['register'])) {
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 	$request = array();
 	$request['type'] = "registerUser";
 	$request['username'] = $_POST["username"];
