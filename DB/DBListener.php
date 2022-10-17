@@ -9,21 +9,22 @@ require_once('DBConnection.php');
 
 function doRegister($username, $email, $password) {
 	$DBConnection = DBConnection();
-	$sql = "select * from `users` where username='$username'";
-	$result = $DBConnection->query($sql);
-	if($result->num_rows == 1) {
+	$result = $DBConnection->query("select * from users where username='$username'");
+	if($result->num_rows > 0) {
 		echo "Username is taken!";
 		return false;
 	}
-	$i = "insert into `users`(username, email, password) values ('$username', '$email','$password')";
+	
+	$i = "insert into users(username, email, password) values ('$username', '$email','$password')";
+		
 	if($DBConnection->query($i) == TRUE) {
 		echo "User created!";
+	}	else {
+	echo "Error: " . $i . "<br>" . $DBConnection->error;
 	}
-	else {
-		echo "Failed to create account.";
-	}
+
 	return true;
-	
+
 }
 
 
@@ -54,7 +55,7 @@ function requestProcessor($request)
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
 
-$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+$server = new rabbitMQServer("../rabbitmqphp_example/testRabbitMQ.ini","testServer");
 
 echo "testRabbitMQServer BEGIN".PHP_EOL;
 $server->process_requests('requestProcessor');

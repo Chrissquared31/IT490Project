@@ -6,7 +6,10 @@ function DBConnection() {
 	$pass="12345";
 	$db="it490";
 
-	$DBconnection = $mysqli_connect($host, $uname, $pass, $db);
+	$DBConnection = mysqli_connect($host, $uname, $pass, $db);
+
+	return $DBConnection;
+
 }
 
 ?>
