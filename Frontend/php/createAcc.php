@@ -1,4 +1,4 @@
-<?php include('DBClient.php') ?>
+<?php include_once 'includes/DBconnection.php'?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
