@@ -1,4 +1,4 @@
-<?php include_once 'includes/DBconnection.php'?>
+<?php include('DBconnection.php')?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
