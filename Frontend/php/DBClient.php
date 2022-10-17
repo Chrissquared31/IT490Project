@@ -4,7 +4,7 @@ require_once('../../rabbitmqphp_example/path.inc');
 require_once('../../rabbitmqphp_example/get_host_info.inc');
 require_once('../../rabbitmqphp_example/rabbitMQLib.inc');
 
-$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+$client = new rabbitMQClient("../../rabbitmqphp_example.com/testRabbitMQ.ini","testServer");
 if(isset($argv[1])) {
 	$msg = $argv[1];
 }
