@@ -1,4 +1,3 @@
-<?php include('DBconnection.php')?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,10 +32,9 @@
             </div> 
 
             <button type="submit" id="registerbutton"name="register">Sign Up</button>
-            <a id= "create-account-tag" href="Login.php">Login</a>
-            
-            
         </form>
+
+
     </div>
 </body>
 </html>
