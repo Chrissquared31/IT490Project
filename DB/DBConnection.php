@@ -3,7 +3,7 @@
 function DBConnection() {
 	$host="localhost";
 	$uname="admin";
-	$pass="12345";
+	$pass="IT490@2022!";
 	$db="it490";
 
 	$DBConnection = mysqli_connect($host, $uname, $pass, $db);
