@@ -4,7 +4,7 @@
     <?php include 'includes/head.php'; ?>
 </head>
 <body>
-
+    <h2>"Hello World"</h2>
 </body>
 <footer>
     <?php include 'includes/foot.php'; ?>
