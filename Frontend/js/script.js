@@ -6,6 +6,22 @@ const cEmail = document.getElementById('create-email');
 const cPassword = document.getElementById('create-password');
 const lPassword = document.getElementById('login-password');
 
+function createAccountRequest(username, email, password)
+{
+	var request = new XMLHttpRequest();
+	request.open("POST","../../DBClient.php",true);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	request.onreadystatechange= function ()
+	{
+		
+		if ((this.readyState == 4)&&(this.status == 200))
+		{
+			HandleLoginResponse(this.responseText);
+		}		
+	}
+	request.send(username, email, password);
+}
+
 const validateInputsC = () => {
     const usernameValue = cUsername.value.trim();
     const emailValue = cEmail.value.trim();
@@ -127,8 +143,8 @@ cForm.addEventListener('submit', e => {
     if(isFormValidC()==true){
         cForm.submit();
         alert("Account Created Successfully")
-
-        window.location.href="../php/Login.php";
+        createAccountRequest(cUsername.value.trim(), cEmail.value.trim(), cPassword.value.trim());
+        window.location.href="../../Login.php";
      }else {
          e.preventDefault();
      }
