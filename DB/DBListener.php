@@ -6,7 +6,6 @@ require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 
 require_once('DBConnection.php');
 
-
 function doRegister($username, $email, $password) {
 	$DBConnection = DBConnection();
 	$result = $DBConnection->query("select * from users where username='$username'");

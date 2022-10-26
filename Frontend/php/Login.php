@@ -1,4 +1,3 @@
-<?php include('DBClient.php')?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,8 +8,8 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../style.css">
-    <script defer src="../../script.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/script.js"></script>
 </head>
 <body>
     

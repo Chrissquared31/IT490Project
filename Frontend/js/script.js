@@ -6,21 +6,28 @@ const cEmail = document.getElementById('create-email');
 const cPassword = document.getElementById('create-password');
 const lPassword = document.getElementById('login-password');
 
-function createAccountRequest(username, email, password)
-{
-	var request = new XMLHttpRequest();
-	request.open("POST","../../DBClient.php",true);
-	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	request.onreadystatechange= function ()
-	{
-		
-		if ((this.readyState == 4)&&(this.status == 200))
-		{
-			HandleLoginResponse(this.responseText);
-		}		
-	}
-	request.send(username, email, password);
-}
+function HandleLoginResponse(response)
+        {
+            var text = JSON.parse(response);
+        //	document.getElementById("textResponse").innerHTML = response+"<p>";	
+            document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
+        }
+
+        function SendLoginRequest(username, password, email)
+        {
+            var request = new XMLHttpRequest();
+            request.open("POST","DBClient.php",true);
+            request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            request.onreadystatechange= function ()
+            {
+                
+                if ((this.readyState == 4)&&(this.status == 200))
+                {
+                    HandleLoginResponse(this.responseText);
+                }		
+            }
+            request.send("username="+username+"&password="+password+"&email=" + email);
+        }  
 
 const validateInputsC = () => {
     const usernameValue = cUsername.value.trim();
@@ -142,9 +149,12 @@ cForm.addEventListener('submit', e => {
    console.log(isFormValidC());
     if(isFormValidC()==true){
         cForm.submit();
-        alert("Account Created Successfully")
-        createAccountRequest(cUsername.value.trim(), cEmail.value.trim(), cPassword.value.trim());
-        window.location.href="../../Login.php";
+        alert(cUsername.value.trim());
+        alert("Account Created Successfully");
+        window.location.href="../php/Login.php";
+        SendLoginRequest(cUsername.value.trim(), cPassword.value.trim(), cEmail.value.trim());
+
+        
      }else {
          e.preventDefault();
      }
