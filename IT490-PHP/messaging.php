@@ -11,7 +11,7 @@
         $username = 'guest';
         $password = 'guest';
         $vhost = 'testHost';
-        return $connection = new AMQPStreamConnection($host, $port, $username, $password,$vhost);
+        return $connection = new AMQPStreamConnection($host, $port, $username, $password, $vhost);
     }
 
     function sendMessage($queue, $message){
@@ -48,6 +48,7 @@
         $channel->basic_consume($queue, '', false, true, false, false, $callback);
         return $channel;
     }        
+    
     //called by front end to send login credentials
     function requestLogin($username, $password){
         $connection = getConnection();
@@ -63,8 +64,9 @@
         $channel->close();
         $connection->close();
     }
+    
     function loginReceived($callback){
-         $connection = getConnection();
+        $connection = getConnection();
         $channel = $connection->channel();
         $queue ='login_request';
         $channel->queue_declare($queue, false, false, false, false);

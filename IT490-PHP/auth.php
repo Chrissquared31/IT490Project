@@ -21,17 +21,15 @@ function register_user(string $username, string $password): bool
     return $statement->execute();
 }
 
-function createSession(){
+function createSession(string $username){
     $str = rand();
     $session = md5($str);
     
-    $sql = 'INSERT INTO users(session)
-            VALUES(:session)';
+    $sql = 'UPDATE users SET session = $session WHERE username=$username';
 
     $statement = db()->prepare($sql);
-    $statement->bindValue(':session', $session, PDO::PARAM_STR);
     return $statement->execute();
-    
+
 }
 
 

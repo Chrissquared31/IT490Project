@@ -1,6 +1,5 @@
 <?php 
-include('messaging.php');
-
+include_once('messaging.php');
 ?>
 <html lang="en">
 <head>
@@ -35,10 +34,9 @@ include('messaging.php');
         <?php
         if(isset($_POST['submit']))
         {
-            requestLogin($_POST['username'], $_POST['password']); 
+            requestLogin($_POST['username'], $_POST['password']) ;  
 
-
-        }
+        } 
 
         ?>
     </div>
