@@ -5,6 +5,7 @@
     include('messaging.php');    
     include('connection.php');
 
+
     $callback = function ($msg) {
         echo ' [x] Received ';        
 
@@ -18,8 +19,10 @@
         $password = $dbuser['password'];
          
             if ($username->rowCount() > 0 and password_verify($credentials->password, $password)){
+                session_start();
+                $_SESSION['pageCount'] = $_SESSION['pageCount'] +1;
                 echo " \n Login Valid \n";
-                $message = 'Login Success';
+                $message = 'Login Success';   
                 loginRequestResponse($credentials, $message);
                 
             } 
